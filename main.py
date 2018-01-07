@@ -17,7 +17,7 @@ class SystemChoice(Form):
         validators=[validators.required()])
 
     dataset = SelectField('Datasets:', 
-        choices = [('kdd', 'KDD_net (n x d)'), ('diabetes', 'Pima Indian Diabetes (n x d)'), ('wine', 'Wine Quality (n x d)')], 
+        choices = [('kdd', 'KDD_net'), ('diabetes', 'Pima Indian Diabetes'), ('wine', 'Wine Quality')], 
         validators=[validators.required()])
 
     gamma_opt_density = RadioField('Density: ', choices = [('dense', 'Dense'), ('sparse', 'Sparse')])
@@ -57,7 +57,17 @@ def hello():
 def get_result(db, lang, dataset):
     # params = request.args.to_dict()
     # print params
-    return 'input:' + db + ' ' + lang + ' ' + dataset
+    linreg = "beta coeficients <br>\
+    [0] -0.8538942665<br>\
+    [1]  0.0205918715<br>\
+    [2]  0.0059202729<br>\
+    [3] -0.0023318790<br>\
+    [4]  0.0001545198<br>\
+    [5] -0.0001805345<br>\
+    [6]  0.0132440315<br>\
+    [7]  0.1472374386<br>\
+    [8]  0.0026213938<br>"
+    return "Linear Regression: R+DBMS: <br>" + linreg
 
 if __name__ == "__main__":
     app.run()
