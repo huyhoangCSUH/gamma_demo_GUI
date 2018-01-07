@@ -1,0 +1,90 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Gamma Demo</title>
+    <link rel="stylesheet" media="screen" href ="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+
+    <div class="container"> 
+
+        <h3>Gamma System Demo</h3>
+        <b>Cluster configuration:</b><br>
+
+        8-node, each has:<br>
+        CPU: Intel core i5 quad-core<br>
+        RAM: 3GB<br>
+        Disk space: HDD 2TB<br>
+
+        <form  action="" method="post" role="form">
+            {{ form.db.label }}<br>
+            {{ form.db(class="form-control", size=3) }}
+            <br>
+
+            {{ form.lang.label }}<br>
+            {{ form.lang(class="form-control", size=2) }}
+            <br>
+
+            {{ form.dataset.label }}<br>
+            {{ form.dataset(class="form-control", size=3) }}
+            <br>
+            <h4>Options for Gamma operator</h4>
+            <table>
+                <col width="150">
+                <col width="150">
+                <tr>
+                    <td>{{ form.gamma_opt_density.label }}</td>
+                    <td>{{ form.gamma_opt_diag.label }}</td>                    
+                    
+                </tr>
+                <tr>
+                    <td>{{ form.gamma_opt_density }}</td>
+                    <td>{{ form.gamma_opt_diag }}</td>  
+                                   
+                </tr>
+                <tr>
+                    <td>{{ form.gamma_opt_Y_col.label }}</td>
+                    <td>{{ form.gamma_opt_groupby.label }}  </td> 
+                </tr>
+                <tr>
+                    <td>{{ form.gamma_opt_Y_col }}</td>
+                    <td>{{ form.gamma_opt_groupby }}</td>  
+                </tr>
+            </table>
+
+            <br>
+
+
+            <button type="submit" class="btn btn-success" id="run">Run</button>
+        </form>
+
+        <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for message in messages %}
+                    {% if "Error" not in message[1]: %}
+                    <div class="alert alert-info">
+                        <strong>Success! </strong> {{ message[1] }}
+                    </div>
+                    {% endif %}
+
+                    {% if "Error" in message[1]: %}
+                    <div class="alert alert-warning">
+                        {{ message[1] }}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    </div>
+    <br>      
+</div>
+</div>
+</body>
+</html>
