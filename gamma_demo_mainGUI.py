@@ -43,10 +43,7 @@ def hello():
         lang = request.form['lang']
         dataset = request.form['dataset']
  
-        if form.validate():
-            # Save the comment here.
-            #flash('Input: ' + db + ' ' + lang + ' ' + dataset)
-            
+        if form.validate():            
             return redirect(url_for('get_result', db=db, lang=lang, dataset=dataset))
         else:
             flash('All the form fields are required. ')
