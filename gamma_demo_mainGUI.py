@@ -20,6 +20,10 @@ class SystemChoice(Form):
         choices = [('kdd', 'KDD_net'), ('diabetes', 'Pima Indian Diabetes'), ('wine', 'Wine Quality')], 
         validators=[validators.required()])
 
+    gamma_opt_method = SelectField('Methods:', 
+        choices = [('sql', 'SQL Query'), ('udf', 'User Defined Function')], 
+        validators=[validators.required()])
+
     gamma_opt_density = RadioField('Density: ', choices = [('dense', 'Dense'), ('sparse', 'Sparse')])
 
     gamma_opt_diag = RadioField('Diagonal/Full: ', choices = [('diagonal', 'Diagonal'), ('full', 'Full')])
