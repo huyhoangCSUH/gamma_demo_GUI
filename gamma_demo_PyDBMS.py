@@ -63,5 +63,6 @@ for a in range(0, 9):
     for b in range(0, 9):
         rho_matrix[a, b] = (N*Q[a, b] - L[a]*L[b])/(np.sqrt(N*Q[a, a] - L[a]**2)*np.sqrt(N*Q[b, b] - L[b]**2))
         rho_matrix[b, a] = rho_matrix[a, b] 
-
+print "Correlation matrix: "
+print(rho_matrix)
 
