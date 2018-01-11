@@ -37,14 +37,16 @@ for row in cur.iterate():
 
 gamma = coo_matrix((np.asarray(data), (np.asarray(rows), np.asarray(cols))), shape=(dim+1, dim+1)).toarray()
 N = gamma[0,0]
-Q =  gamma[0:9, 0:9]
+Q_bold =  gamma[0:9, 0:9]
+Q = gamma[1:9, 1:9]
 L = gamma[1:9, 0]
 XYt =  gamma[0:9, 9]
 
 # Calculating Linear regression
 
-Q_inv = inv(Q)
+Q_inv = inv(Q_bold)
 beta = np.dot(Q_inv, XYt)
+print "Linear Regressions coefficients:"
 print beta
 
 # Calculating mean/variance
