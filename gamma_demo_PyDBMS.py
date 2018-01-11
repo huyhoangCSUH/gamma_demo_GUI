@@ -43,7 +43,6 @@ L = gamma[1:9, 0]
 XYt =  gamma[0:9, 9]
 
 # Calculating Linear regression
-
 Q_inv = inv(Q_bold)
 beta = np.dot(Q_inv, XYt)
 print "Linear Regressions coefficients:"
@@ -60,7 +59,7 @@ print "Covariance: "
 print(covariance)
 
 # Calculating correlation matrix
-rho_matrix = np.zeros(shape=(9, 9))
+rho_matrix = np.zeros(shape=(8, 8))
 for a in range(0, 8):
     for b in range(0, 8):
         rho_matrix[a, b] = (N*Q[a, b] - L[a]*L[b])/(np.sqrt(N*Q[a, a] - L[a]**2)*np.sqrt(N*Q[b, b] - L[b]**2))
