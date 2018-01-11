@@ -1,5 +1,5 @@
 from flask import Flask, render_template, flash, request, redirect, url_for
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, SelectField, RadioField
+from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, SelectField, RadioField, FileField
  
 # App config.
 DEBUG = True
@@ -19,6 +19,8 @@ class SystemChoice(Form):
     dataset = SelectField('Datasets:', 
         choices = [('kdd', 'KDD_net'), ('diabetes', 'Pima Indian Diabetes'), ('wine', 'Wine Quality')], 
         validators=[validators.required()])
+
+    fileName = FileField()
 
     gamma_opt_method = SelectField('Methods:', 
         choices = [('sql', 'SQL Query'), ('udf', 'User Defined Function')], 

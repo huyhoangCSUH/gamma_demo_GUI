@@ -33,7 +33,9 @@
             {{ form.dataset.label }}<br>
             {{ form.dataset }}
             <br>
-
+            <p>Or load csv file:</p>
+            {{form.fileName()}}
+            
             <h4>Options for Gamma operator</h4>
             {{ form.gamma_opt_method.label }}<br>
             {{ form.gamma_opt_method(class="form-control", size=2)}}
