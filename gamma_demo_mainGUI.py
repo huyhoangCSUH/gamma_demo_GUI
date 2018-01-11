@@ -9,7 +9,7 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
  
 class SystemChoice(Form):
     db = SelectField('Databases:', 
-        choices = [('scidb', 'array (SciDB)'), ('vertica', 'columnar (Vertica)'), ('pg', 'row (PostgreSQL)')], 
+        choices = [('scidb', 'array (SciDB)'), ('vertica', 'columnar (Vertica)')], 
         validators=[validators.required()])
 
     lang = SelectField('Languages:', 

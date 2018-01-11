@@ -23,7 +23,7 @@
 
         <form  action="" method="post" role="form">
             {{ form.db.label }}<br>
-            {{ form.db(class="form-control", size=3) }}
+            {{ form.db(class="form-control", size=2) }}
             <br>
 
             {{ form.lang.label }}<br>
@@ -35,7 +35,7 @@
             <br>
             <p>Or load csv file:</p>
             {{form.fileName()}}
-            
+
             <h4>Options for Gamma operator</h4>
             {{ form.gamma_opt_method.label }}<br>
             {{ form.gamma_opt_method(class="form-control", size=2)}}
