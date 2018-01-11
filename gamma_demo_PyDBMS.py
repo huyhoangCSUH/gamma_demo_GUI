@@ -64,6 +64,7 @@ rho_matrix = np.zeros(shape=(9, 9))
 for a in range(0, 9):
     for b in range(0, 9):
         rho_matrix[a, b] = (N*Q[a, b] - L[a]*L[b])/(np.sqrt(N*Q[a, a] - L[a]**2)*np.sqrt(N*Q[b, b] - L[b]**2))
+        print(rho_matrix[a,b])
         rho_matrix[b, a] = rho_matrix[a, b] 
 print "Correlation matrix: "
 print(rho_matrix)
