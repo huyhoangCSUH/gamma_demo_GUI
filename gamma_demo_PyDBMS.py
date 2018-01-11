@@ -50,10 +50,12 @@ print beta
 # Calculating mean/variance
 mean = np.dot(1.0/N, L)
 Ln = L/N
-variance = Q/N - np.dot(Ln, np.transpose(Ln))
-std_dev = np.sqrt(variance)
-print "Mean: " + mean
-print "Standard Deviation: " + std_dev
+covariance = Q/N - np.dot(Ln, np.transpose(Ln))
+
+print "Mean: "
+print(mean)
+print "Covariance: "
+print(covariance)
 
 # Calculating correlation matrix
 rho_matrix = np.zeros(shape=(9, 9))
