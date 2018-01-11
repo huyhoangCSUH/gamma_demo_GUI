@@ -2,6 +2,7 @@ import vertica_python
 import numpy as np
 from scipy.sparse import coo_matrix
 from numpy.linalg import inv
+from math import sqrt
 
 # file login.ini contains host, username, password, and db name
 with open('login.ini', 'r') as f:
@@ -48,14 +49,17 @@ print beta
 
 # Calculating mean/variance
 mean = np.dot(1.0/N, L)
-variance = np.dot(1.0/N, Q) - np.dot(1.0/(N**2), np.dot(L, np.transpose(L)))
+Ln = L/N
+variance = Q/N - np.dot(Ln, np.transpose(Ln))
 std_dev = np.sqrt(variance)
+print "Mean: " + mean
+print "Standard Deviation: " + std_dev
 
 # Calculating correlation matrix
 rho_matrix = np.zeros(shape=(9, 9))
 for a in range(0, 9):
     for b in range(0, 9):
-        rho_matrix[a, b] = (N*Q[a, b] - L[a]*L[b])/(sqrt(n*Q[a, a] - L[a]**2)*sqrt(n*Q[b, b] - L[b]**2))
+        rho_matrix[a, b] = (N*Q[a, b] - L[a]*L[b])/(np.sqrt(N*Q[a, a] - L[a]**2)*np.sqrt(N*Q[b, b] - L[b]**2))
         rho_matrix[b, a] = rho_matrix[a, b] 
 
 
